@@ -22,6 +22,62 @@
             line-height: 1.6;
         }
 
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            list-style: none;
+            flex-wrap: wrap; /* Ensure navigation adapts on small screens */
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        .logo a {
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #007bff;
+            font-style: italic;
+            letter-spacing: 1px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .logo a:hover {
+            color: #ff9800;
+            text-shadow: 1px 1px 5px rgba(255, 152, 0, 0.6);
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
         /* Container and Header */
         .container {
             display: flex;
@@ -68,6 +124,17 @@
             box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
         }
 
+        /* Box Styling */
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
         /* Footer Styling */
         footer {
             margin-top: 20px;
@@ -75,69 +142,51 @@
             color: rgba(0, 0, 0, 0.6);
         }
 
-        /* Robot Image Styling */
-        .background-robot {
-            width: 180px;
-            height: 180px;
-            object-fit: contain;
-            margin-top: 20px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Floating Animation for Robot */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column; /* Stack navigation items on mobile */
+                align-items: flex-start;
             }
-            50% {
-                transform: translateY(-10px);
+
+            nav ul li {
+                margin-right: 0;
+                margin-bottom: 10px;
             }
-        }
 
-        /* Add subtle shadow and border to the container */
-        .content-box {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
+            .logo a {
+                font-size: 1.5rem;
+            }
 
-        /* Guide Section Styling */
-        #guide {
-            padding: 50px 20px;
-            background-color: #f7f7f7;
-            border-top: 2px solid #007bff;
-            margin-top: 30px;
-        }
+            h1 {
+                font-size: 2.5rem;
+            }
 
-        #guide h2 {
-            font-size: 2.5rem;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
+            p {
+                font-size: 1rem;
+            }
 
-        #guide p {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 15px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #guide a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #guide a:hover {
-            text-decoration: underline;
+            .cta-button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li class="logo">
+                <a href="#top">dotpool.io</a>
+            </li>
+            <li><a href="#guide">Guide</a></li>
+            <li><a href="#earn">How We Earn</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="top" class="container">
         <div class="content-box">
             <h1>Welcome to dotpool.io</h1>
             <p>Polkadot pools are secure and trustless, ensuring your staked DOTs are always safe. However, some pools may charge high commissions—up to 100%—taking all your rewards.</p>
@@ -145,10 +194,11 @@
             <p>Our pool’s commission is permanently locked at 0%, ensuring your rewards are always maximized with complete transparency.</p>
             <p>Contact us: <a href="mailto:support@dotpool.io">support@dotpool.io</a></p>
             <a href="#guide" class="cta-button">Join dotpool.io</a>
-            <img src="polkabot.png" alt="PolkaBot" class="background-robot">
         </div>
     </div>
-    <div id="guide">
+
+    <!-- Guide Section -->
+    <div id="guide" class="content-box">
         <h2>How to Join dotpool.io (#299)</h2>
         <p>Joining our pool is quick and easy. Follow these simple steps to stake your DOTs with dotpool.io:</p>
         <ol style="text-align: left; max-width: 700px; margin: 0 auto;">
@@ -159,6 +209,15 @@
         </ol>
         <p>Once completed, your staking rewards will start accruing, and you’ll enjoy 0% commission, forever!</p>
     </div>
+
+    <!-- How We Earn Section -->
+    <div id="earn" class="content-box">
+        <h2>How We Earn</h2>
+        <p>At dotpool.io, our earnings come from operating our own Polkadot validator. While we currently charge a low commission rate of <strong>0%</strong>, this may increase to a maximum of <strong>3%</strong> in the future to cover operating costs.</p>
+        <p>The commission rate is carefully managed to ensure fairness and sustainability for all users. Unless the price ratio of running a node compared to Polkadot validator rewards significantly shifts, this cap will remain.</p>
+        <p>Your trust and rewards are our priority.</p>
+    </div>
+
     <footer>
         &copy; 2024 dotpool.io. All rights reserved.
     </footer>
