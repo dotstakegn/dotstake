@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated Favicon -->
     <link rel="icon" href="dotpool.png" type="image/png">
     <title>Welcome to dotpool.io</title>
     <style>
-        /* Reset and Base Styling */
         * {
             margin: 0;
             padding: 0;
@@ -23,42 +21,34 @@
             line-height: 1.6;
         }
 
-        /* Navigation Bar */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background: white;
             border-bottom: 1px solid #ddd;
-            color: #333;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
 
-        nav ul {
+        nav .nav-container {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             padding: 10px 20px;
-            list-style: none;
-            flex-wrap: wrap; /* Ensure navigation adapts on small screens */
         }
 
-        nav ul li {
-            margin-right: 20px;
-        }
-
-        .logo {
+        nav .logo {
             display: flex;
             align-items: center;
-            margin-right: auto;
         }
 
-        .logo img {
+        nav .logo img {
             height: 40px;
             margin-right: 10px;
         }
 
-        .logo a {
+        nav .logo a {
             text-decoration: none;
             font-size: 1.8rem;
             font-weight: bold;
@@ -68,9 +58,29 @@
             transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
-        .logo a:hover {
+        nav .logo a:hover {
             color: #ff9800;
             text-shadow: 1px 1px 5px rgba(255, 152, 0, 0.6);
+        }
+
+        nav .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: #333;
+            align-self: center; /* Ensure the arrow is centered */
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px; /* Adjusted spacing for alignment */
         }
 
         nav ul li a {
@@ -84,7 +94,69 @@
             color: #007bff;
         }
 
-        /* Container and Header */
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Hide the menu by default */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                border-top: 1px solid #ddd;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.show {
+                display: flex; /* Show the menu when toggled */
+            }
+
+            nav .menu-toggle {
+                display: block; /* Show toggle button on mobile */
+                margin: 0 auto; /* Center the toggle button horizontally */
+            }
+
+            .container {
+                padding-top: 70px; /* Add padding to avoid overlap */
+            }
+
+            .logo img {
+                height: 30px;
+            }
+
+            .logo a {
+                font-size: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            nav .nav-container {
+                flex-direction: column; /* Stack logo and toggle in mobile */
+                align-items: flex-start;
+            }
+
+            nav ul {
+                width: 100%;
+                padding-left: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0; /* Spacing for stacked items */
+            }
+        }
+
         .container {
             display: flex;
             flex-direction: column;
@@ -110,7 +182,6 @@
             max-width: 700px;
         }
 
-        /* Button Styling */
         .cta-button {
             display: inline-block;
             background-color: #007bff;
@@ -130,7 +201,6 @@
             box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
         }
 
-        /* Box Styling */
         .content-box {
             background: white;
             border-radius: 15px;
@@ -141,64 +211,28 @@
             max-width: 800px;
         }
 
-        /* Footer Styling */
         footer {
             margin-top: 20px;
             font-size: 0.9rem;
             color: rgba(0, 0, 0, 0.6);
         }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column; /* Stack navigation items on mobile */
-                align-items: flex-start;
-            }
-
-            nav ul li {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-
-            .logo img {
-                height: 30px;
-            }
-
-            .logo a {
-                font-size: 1.5rem;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav>
-        <ul>
-            <li class="logo">
-                <!-- Logo Image -->
+        <div class="nav-container">
+            <div class="logo">
                 <img src="dotpool.png" alt="dotpool.io logo">
-                <!-- Textual Logo -->
                 <a href="#top">dotpool.io</a>
-            </li>
-            <li><a href="#guide">Guide</a></li>
-            <li><a href="#earn">How We Earn</a></li>
-        </ul>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9660;</button>
+            <ul>
+                <li><a href="#guide">Guide</a></li>
+                <li><a href="#earn">How We Earn</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Main Content -->
     <div id="top" class="container">
         <div class="content-box">
             <h1>Welcome to dotpool.io</h1>
@@ -210,7 +244,6 @@
         </div>
     </div>
 
-    <!-- Guide Section -->
     <div id="guide" class="content-box">
         <h2>How to Join dotpool.io (#299)</h2>
         <p>Joining our pool is quick and easy. Follow these simple steps to stake your DOTs with dotpool.io:</p>
@@ -223,10 +256,9 @@
         <p>Once completed, your staking rewards will start accruing, and you’ll enjoy 0% commission, forever!</p>
     </div>
 
-    <!-- How We Earn Section -->
     <div id="earn" class="content-box">
         <h2>How We Earn</h2>
-        <p>At dotpool.io, our earnings come from operating our own Polkadot validator. While we currently charge a low commission rate of <strong>0%</strong>, this may increase to a maximum of <strong>3%</strong> in the future to cover operating costs.</p>
+        <p>At dotpool.io, our earnings come from operating our own Polkadot validator. While we charge <strong>0%</strong> commission for our validator as well, this may increase to a maximum of <strong>3%</strong> in the future to cover operating costs.</p>
         <p>The commission rate is carefully managed to ensure fairness and sustainability for all users. Unless the price ratio of running a node compared to Polkadot validator rewards significantly shifts, this cap will remain.</p>
         <p>Your trust and rewards are our priority.</p>
     </div>
@@ -234,5 +266,14 @@
     <footer>
         &copy; 2024 dotpool.io. All rights reserved.
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
