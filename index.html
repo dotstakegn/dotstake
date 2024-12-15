@@ -4,83 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="polkabot.png" type="image/png">
-    <title>Welcome to Polkadot Staking</title>
+    <title>Welcome to DotPool</title>
     <style>
-        body {
+        /* Reset and Base Styling */
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f0f0f0;
-            color: #333;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f9f9f9, #eef2f3);
+            color: #333;
+            text-align: center;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        /* Container and Header */
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            z-index: 1;
-            position: relative;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
         }
 
         h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: #333;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #007bff;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         p {
-            font-size: 1.6rem;
-            margin: 10px 0 30px;
-            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #555;
+            max-width: 700px;
         }
 
+        /* Button Styling */
         .cta-button {
             display: inline-block;
             background-color: #007bff;
             color: white;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+            padding: 12px 24px;
+            font-size: 1.1rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: bold;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
         }
 
         .cta-button:hover {
-            background-color: #0056b3;
-            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
         }
 
+        /* Footer Styling */
         footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
+            margin-top: 20px;
             font-size: 0.9rem;
             color: rgba(0, 0, 0, 0.6);
-            z-index: 1;
         }
 
+        /* Robot Image Styling */
         .background-robot {
-            width: 200px;
-            height: 200px;
-            object-fit: fill;
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            margin-top: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Floating Animation for Robot */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Add subtle shadow and border to the container */
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to PolkaBot</h1>
-        <img src="polkabot.png" alt="Background Robot" class="background-robot">
-        <p>Secure, reliable, and fun Validator powered by Polkadot.</p>
-        <p>Contact us at support@polkabot.xyz</p>
-        <p>More coming soon...</p>
+        <div class="content-box">
+            <h1>Welcome to DotPool</h1>
+            <p>Polkadot pools are secure and trustless, ensuring your staked DOTs are always safe. However, some pools may charge high commissions—up to 100%—taking all your rewards.</p>
+            <p>At DotPool, we believe staking rewards belong to you. That’s why we charge <strong>0% commission</strong>, forever.</p>
+            <p>Our pool’s commission is permanently locked at 0%, ensuring your rewards are always maximized with complete transparency.</p>
+            <p>Contact us: <a href="mailto:support@dotpool.io">support@dotpool.io</a></p>
+            <a href="#contact" class="cta-button">Join DotPool</a>
+            <img src="polkabot.png" alt="PolkaBot" class="background-robot">
+        </div>
     </div>
     <footer>
-        &copy; 2024 PolkaBot. All rights reserved.
+        &copy; 2024 DotPool. All rights reserved.
     </footer>
 </body>
 </html>
